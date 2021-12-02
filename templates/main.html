@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<style>
+form {
+    margin: auto;
+    width: 50%;
+}
+.result {
+    margin: auto;
+    width: 50%;
+    border: 1px solid #ccc;
+}
+</style>
+<head>
+    <title>Government Employee Expected Salary Estimato</title>
+</head>
+<form action="{{ url_for('main') }}" method="POST">
+    <fieldset>
+        <legend>Input values:</legend>
+        <label for="AGELVL">Age Level:</label>
+		<select name="AGELVL" id="AGELVL">
+    			<option value="1">Less than 20</option>
+  			<option value="2">20 to 24</option>
+  			<option value="3">25 to 29</option>
+  			<option value="4">30 to 34</option>
+  			<option value="5">35 to 39</option>
+  			<option value="6">40 to 44</option>
+  			<option value="7">45 to 49</option>
+  			<option value="8">50 to 55</option>
+  			<option value="9">55 to 59</option>
+  			<option value="10">60 to 64</option>
+  			<option value="11">65 or more</option>
+		</select>
+	<br>
+        <br>
+         <label for="EDLVL">Education Level:</label>
+		<select name="EDLVL" id="EDLVL">
+    			<option value="1">No formal education or some elementary school</option>
+  			<option value="2">Elementary school completed - no high school</option>
+  			<option value="3">Some high school - did not complete</option>
+  			<option value="4">High school graduate or certificate of equivalency</option>
+  			<option value="5">Terminal occupational program - did not complete</option>
+  			<option value="6">Terminal occupational program - certificate of completion</option>
+  			<option value="7">Less than one year of college</option>
+  			<option value="8">One year of college</option>
+  			<option value="9">Two years of college</option>
+  			<option value="10">Associate's degree</option>
+  			<option value="11">Three years of college</option>
+  			<option value="12">Four years of college</option>
+  			<option value="13">Bachelor's degree</option>
+  			<option value="14">Post-Bachelor's</option>
+  			<option value="15">First professional</option>
+  			<option value="16">Post-First professional</option>
+  			<option value="17">Master's degree</option>
+  			<option value="18">Post-Master's</option>
+  			<option value="19">Sixth-year degree</option>
+  			<option value="20">Post-Sixth year</option>
+  			<option value="21">Doctorate degree</option>
+  			<option value="22">Post-Doctorate</option>
+		</select>
+        <br>
+        <br>
+         <label for="GSEGRD">GS Payscale Level:</label>
+		<select name="GSEGRD" id="GSEGRD">
+    			<option value="1">GS-1</option>
+  			<option value="2">GS-2</option>
+  			<option value="3">GS-3</option>
+  			<option value="4">GS-4</option>
+  			<option value="5">GS-5</option>
+  			<option value="6">GS-6</option>
+  			<option value="7">GS-7</option>
+  			<option value="8">GS-8</option>
+  			<option value="9">GS-9</option>
+  			<option value="10">GS-10</option>
+  			<option value="11">GS-11</option>
+  			<option value="12">GS-12</option>
+  			<option value="13">GS-13</option>
+  			<option value="14">GS-14</option>
+  			<option value="15">GS-15</option>
+		</select>
+        <br>
+        <br>
+         <label for="PATCO">Job Type:</label>
+		<select name="PATCO" id="PATCO">
+    			<option value="1">Professional</option>
+  			<option value="2">Administrative</option>
+  			<option value="3">Technical</option>
+  			<option value="4">Clerical</option>
+  			<option value="5">Other White Collar</option>
+  			<option value="6">Blue Collar</option>
+		</select>
+        <br>
+        <br>
+         <label for="STEMOCC">STEM Position:</label>
+		<select name="STEMOCC" id="STEMOCC">
+    			<option value="0">Not STEM</option>
+  			<option value="1">STEM</option>
+		</select>
+        <br>
+        <br> Years of Government Service:
+        <input name="LOS" type="number" required>
+        <br>
+        <br>
+        <input type="submit">
+    </fieldset>
+</form>
+<br>
+<div class="result" align="center">
+    {% if result %}
+        {% for variable, value in original_input.items() %}
+            <b>{{ variable }}</b> : {{ value }}
+        {% endfor %}
+        <br>
+        <br> Government Employee Expected Salary Estimate::
+           <p style="font-size:50px">{{ result }}</p>
+    {% endif %}
+</div>
+</html>
