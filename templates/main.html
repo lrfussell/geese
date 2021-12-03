@@ -112,7 +112,7 @@ form {
         {% endfor %}
         <br>
         <br> Government Employee Expected Salary Estimate::
-           <p style="font-size:50px">{{ result }}</p>
+           <p style="font-size:50px">{{ "$" + result.toFixed(2) }}</p>
     {% endif %}
 </div>
 </html>
