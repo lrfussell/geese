@@ -31,7 +31,7 @@ def main():
                                                      'PATCO':PATCO,
                                                      'STEMOCC':STEMOCC,
                                                      'LOS':LOS},
-                                     result = prediction,
+                                     result = round(prediction, 2),
                                      )
 
 if __name__ == '__main__':
