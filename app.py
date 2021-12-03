@@ -1,6 +1,7 @@
 import flask
 import pickle
 import pandas as pd
+import locale
 
 # Use pickle to load in the pre-trained model.
 with open(f'model/geese.pkl', 'rb') as f:
@@ -31,7 +32,7 @@ def main():
                                                      'PATCO':PATCO,
                                                      'STEMOCC':STEMOCC,
                                                      'LOS':LOS},
-                                     result=prediction,
+                                     result = locale.currency(prediction, grouping=True ),
                                      )
 
 if __name__ == '__main__':
