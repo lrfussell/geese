@@ -24,6 +24,8 @@ def main():
                                        columns=['f0', 'f1', 'f2', 'f3', 'f4', 'f5'],
                                        dtype=float)
         prediction = model.predict(input_variables)[0]
+        if prediction < 19738: prediction = 19738
+        if prediction > 172500: prediction = 172500
         return flask.render_template('main.html',
                                      original_input={'AGELVL':AGELVL,
                                                      'EDLVL':EDLVL,
